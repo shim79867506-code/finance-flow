@@ -68,7 +68,7 @@ MVP 업로드 유형은 전표 내역입니다. 계정별 원장, 시산표, 프
 
 ## Windows 실행 파일
 
-[Windows용 FinanceFlow 다운로드](https://github.com/shim79867506-code/finance-flow/releases/tag/windows-v1.0.0)에서 PC에 맞는 파일을 받습니다. 일반 Intel/AMD PC는 x64, Windows on ARM PC는 ARM64를 사용합니다.
+일반 Intel/AMD PC는 [Windows x64](https://raw.githubusercontent.com/shim79867506-code/finance-flow/main/desktop/windows/downloads/FinanceFlow-Windows-x64.exe), Windows on ARM PC는 [Windows ARM64](https://raw.githubusercontent.com/shim79867506-code/finance-flow/main/desktop/windows/downloads/FinanceFlow-Windows-ARM64.exe)를 받습니다. [SHA-256 체크섬](desktop/windows/downloads/SHA256SUMS.txt)을 함께 제공합니다. 실행 파일은 코드 서명되지 않았습니다.
 
 실행 파일은 Microsoft Edge 앱 창에서 배포된 FinanceFlow를 엽니다. Edge 앱 창을 열 수 없으면 Windows 기본 브라우저를 사용합니다. 로그인, Excel 업로드와 Supabase 동기화에는 인터넷이 필요합니다. 앱에서 **데이터 업로드 → Excel 또는 CSV 파일 선택**으로 파일을 선택하고, Excel 시트와 컬럼 매핑을 확인한 뒤 검증 및 저장합니다.
 

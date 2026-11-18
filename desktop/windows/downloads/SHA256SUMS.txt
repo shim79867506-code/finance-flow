@@ -1,0 +1,2 @@
+01ea39eff1de5f0409f93cf4f51262eb615af47eed13ab6e32c98ee03a097142  FinanceFlow-Windows-ARM64.exe
+8d01288080d680f431dd84802ac86bfd136b3ab7c8d6ce4f148a94e4be4f6c87  FinanceFlow-Windows-x64.exe
