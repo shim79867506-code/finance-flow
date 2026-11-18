@@ -63,3 +63,5 @@ npm run test:e2e
 - Phase 4: AI 분석
 
 MVP 업로드 유형은 전표 내역입니다. 계정별 원장, 시산표, 프로젝트 원가보고서 및 재무제표 기초자료의 별도 가져오기 유형은 후속 범위입니다.
+
+실제 Supabase를 사용한 브라우저 테스트를 실행하려면 별도 테스트 조직 관리자 계정을 준비한 뒤 `TEST_BASE_URL`, `TEST_LIVE_EMAIL`, `TEST_LIVE_PASSWORD`를 로컬 환경에서 설정하고 `npm run test:e2e -- e2e/live.spec.ts`를 실행합니다. 이 테스트는 검증용 전표와 원본 파일을 실제 프로젝트에 보관합니다.
