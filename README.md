@@ -66,7 +66,11 @@ MVP 업로드 유형은 전표 내역입니다. 계정별 원장, 시산표, 프
 
 실제 Supabase를 사용한 브라우저 테스트를 실행하려면 별도 테스트 조직 관리자 계정을 준비한 뒤 `TEST_BASE_URL`, `TEST_LIVE_EMAIL`, `TEST_LIVE_PASSWORD`를 로컬 환경에서 설정하고 `npm run test:e2e -- e2e/live.spec.ts`를 실행합니다. 이 테스트는 검증용 전표와 원본 파일을 실제 프로젝트에 보관합니다.
 
-## Windows 실행 파일
+## Windows 데스크톱 프로그램
+
+[다운로드 및 Excel 등록 방법](desktop/offline/README.md)을 참고하세요. [Windows 실행 파일과 샘플 Excel](desktop/offline/downloads)을 제공합니다.
+
+## 웹 실행 도구 (이전 버전)
 
 일반 Intel/AMD PC는 [Windows x64](https://raw.githubusercontent.com/shim79867506-code/finance-flow/main/desktop/windows/downloads/FinanceFlow-Windows-x64.exe), Windows on ARM PC는 [Windows ARM64](https://raw.githubusercontent.com/shim79867506-code/finance-flow/main/desktop/windows/downloads/FinanceFlow-Windows-ARM64.exe)를 받습니다. [SHA-256 체크섬](desktop/windows/downloads/SHA256SUMS.txt)을 함께 제공합니다. 실행 파일은 코드 서명되지 않았습니다.
 
