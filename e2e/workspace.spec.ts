@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import ExcelJS from "exceljs";
 
 const csv =
   "회계일자,전표번호,계정코드,차변,대변,프로젝트코드,사업부,적요\n2026-01-15,E2E-01,101,12345,0,COMMON,E2E,검증 수납\n2026-01-15,E2E-01,401,0,12345,COMMON,E2E,검증 매출\n";
@@ -19,11 +20,21 @@ test("업로드 → 전표 조회 → 집계 → 다운로드", async ({ page })
   await expect(
     page.getByRole("button", { name: "승인 및 저장" }),
   ).toBeDisabled();
-  await input.setInputFiles({
-    name: "e2e.csv",
-    mimeType: "text/csv",
-    buffer: Buffer.from(csv),
+  const workbook = new ExcelJS.Workbook();
+  workbook.addWorksheet("안내").addRow(["두 번째 시트에서 전표를 선택하세요."]);
+  workbook.addWorksheet("전표").addRows(
+    csv.trim().split("\n").map((line) => line.split(",")),
+  );
+  const [chooser] = await Promise.all([
+    page.waitForEvent("filechooser"),
+    page.getByRole("button", { name: /Excel 또는 CSV 파일 선택/ }).click(),
+  ]);
+  await chooser.setFiles({
+    name: "e2e.xlsx",
+    mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    buffer: Buffer.from(await workbook.xlsx.writeBuffer() as ArrayBuffer),
   });
+  await page.getByLabel("Excel 시트").selectOption({ label: "전표" });
   await page.getByRole("button", { name: "데이터 검증" }).click();
   await page.getByRole("button", { name: "승인 및 저장" }).click();
   await expect(page.getByText(/샘플 워크스페이스에 반영/)).toBeVisible();

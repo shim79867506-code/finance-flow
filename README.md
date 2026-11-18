@@ -65,3 +65,11 @@ npm run test:e2e
 MVP 업로드 유형은 전표 내역입니다. 계정별 원장, 시산표, 프로젝트 원가보고서 및 재무제표 기초자료의 별도 가져오기 유형은 후속 범위입니다.
 
 실제 Supabase를 사용한 브라우저 테스트를 실행하려면 별도 테스트 조직 관리자 계정을 준비한 뒤 `TEST_BASE_URL`, `TEST_LIVE_EMAIL`, `TEST_LIVE_PASSWORD`를 로컬 환경에서 설정하고 `npm run test:e2e -- e2e/live.spec.ts`를 실행합니다. 이 테스트는 검증용 전표와 원본 파일을 실제 프로젝트에 보관합니다.
+
+## Windows 실행 파일
+
+[Windows용 FinanceFlow 다운로드](https://github.com/shim79867506-code/finance-flow/releases/tag/windows-v1.0.0)에서 PC에 맞는 파일을 받습니다. 일반 Intel/AMD PC는 x64, Windows on ARM PC는 ARM64를 사용합니다.
+
+실행 파일은 Microsoft Edge 앱 창에서 배포된 FinanceFlow를 엽니다. Edge 앱 창을 열 수 없으면 Windows 기본 브라우저를 사용합니다. 로그인, Excel 업로드와 Supabase 동기화에는 인터넷이 필요합니다. 앱에서 **데이터 업로드 → Excel 또는 CSV 파일 선택**으로 파일을 선택하고, Excel 시트와 컬럼 매핑을 확인한 뒤 검증 및 저장합니다.
+
+Go를 설치한 환경에서 실행 파일을 빌드하려면 프로젝트 루트에서 `GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w -H=windowsgui" -o FinanceFlow-Windows-x64.exe desktop/windows/main.go`를 실행합니다. ARM64용은 `GOARCH=arm64`를 사용합니다.

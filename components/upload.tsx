@@ -173,7 +173,7 @@ export function Upload({
         <div className="panel-head">
           <div>
             <h2>ERP 전표 업로드</h2>
-            <p>XLSX 또는 CSV · 최대 4MB, 시트당 5,000행</p>
+            <p>Excel (.xlsx) 또는 CSV · 최대 4MB, 시트당 5,000행</p>
           </div>
           <Button
             onClick={() =>
@@ -183,7 +183,7 @@ export function Upload({
             }
           >
             <Download size={16} />
-            전표 양식
+            Excel 전표 양식
           </Button>
         </div>
         <input
@@ -200,6 +200,7 @@ export function Upload({
         <button
           type="button"
           className="dropzone"
+          aria-label="Excel 또는 CSV 파일 선택"
           disabled={working}
           onClick={() => input.current?.click()}
           onDragOver={(event) => event.preventDefault()}
@@ -209,14 +210,15 @@ export function Upload({
           }}
         >
           {file ? <FileSpreadsheet size={26} /> : <CloudUpload size={28} />}
-          <strong>{file?.name ?? "파일을 끌어오거나 선택하세요"}</strong>
-          <span>더존 ERP 전표 내역</span>
+          <strong>{file?.name ?? "Excel 또는 CSV 파일 선택"}</strong>
+          <span>더존 ERP 전표 파일을 이곳으로 끌어 놓을 수도 있습니다.</span>
         </button>
         {sheet && (
           <>
             <label className="sheet-select">
               Excel 시트
               <select
+                aria-label="Excel 시트"
                 value={index}
                 disabled={working}
                 onChange={async (event) => {
